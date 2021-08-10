@@ -31,7 +31,7 @@ type CreateTransactionCMD struct {
 }
 
 // Validate CreateTransactionCMD
-func (c *CreateTransactionCMD) Validate() error {
+func (c *CreateTransactionCMD) validate() error {
 	// Check that has a positive amount
 	if c.Amount < 0.0 {
 		return errors.New("Amount must be higher than zero")
