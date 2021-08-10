@@ -19,13 +19,13 @@ type CreateUserCMD struct {
 	Nationality string `json:"nationality"`
 }
 
-func (c *CreateUserCMD) Validate() error {
+func (c *CreateUserCMD) validate() error {
 	// Validate it has a username
 	if c.Username == "" {
 		return errors.New("Username can not be empty")
 	}
 
-	if c.Age < 0 {
+	if c.Age <= 0 {
 		return errors.New("Age must be positive")
 	}
 
