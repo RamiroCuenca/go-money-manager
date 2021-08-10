@@ -1,21 +1,21 @@
 package common
 
-// import (
-// 	"log"
+import (
+	"database/sql"
+	"fmt"
+)
 
-// 	"gorm.io/driver/mysql"
-// 	"gorm.io/gorm"
-// )
+type MySqlClient struct {
+}
 
-// func GetConnection() *gorm.DB {
+func NewSqlClient(source string) *sql.DB {
+	db, err := sql.Open("mysql", source)
 
-// 	dsn := "ramiro:admin@/moneyManager?charset=utf8"
+	if err != nil {
+		_ = fmt.Errorf("Failed to open database: %v", err.Error())
+		panic(err)
+	}
 
-// 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	return db
 
-// 	if err != nil {
-// 		log.Println("Error getting the connection: ", err)
-// 	}
-
-// 	return db
-// }
+}
