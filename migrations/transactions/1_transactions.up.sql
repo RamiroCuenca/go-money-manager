@@ -6,6 +6,4 @@ CREATE TABLE IF NOT EXISTS transactions (
   t_description VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
   amount INTEGER NOT NULL,
-  t_status BOOLEAN NOT NULL,
-  recurrent BOOLEAN NOT NULL,
 );

@@ -14,8 +14,6 @@ type Transaction struct {
 	Description string    `json:"description"`
 	Category    string    `json:"category"`
 	Amount      float64   `json:"amount"`
-	State       bool      `json:"state"`     // 1 = done - 0 = pending
-	Recurrent   bool      `json:"recurrent"` // 1 = yes - 0 = no
 }
 
 // Create Transaction Command
@@ -26,8 +24,6 @@ type CreateTransactionCMD struct {
 	Description string    `json:"description"`
 	Category    string    `json:"category"`
 	Amount      float64   `json:"amount"`
-	State       bool      `json:"state"`     // 1 = done - 0 = pending
-	Recurrent   bool      `json:"recurrent"` // 1 = yes - 0 = no
 }
 
 // Validate CreateTransactionCMD
