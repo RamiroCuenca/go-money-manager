@@ -4,4 +4,5 @@ CREATE TABLE IF NOT EXISTS users (
   age INTEGER NOT NULL,
   gender VARCHAR(255) NOT NULL,
   nationality VARCHAR(255) NOT NULL,
+  balance INTEGER NOT NULL,
 );

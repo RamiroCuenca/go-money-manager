@@ -9,6 +9,7 @@ type User struct {
 	Age         int64  `json:"age"`
 	Gender      bool   `json:"gender"` // 1 = Male - 0 = Female
 	Nationality string `json:"nationality"`
+	Balance     int64  `json:"balance"`
 }
 
 // Create User Command. Does not include the ID
@@ -17,6 +18,7 @@ type CreateUserCMD struct {
 	Age         int64  `json:"age"`
 	Gender      bool   `json:"gender"` // 1 = Male - 0 = Female
 	Nationality string `json:"nationality"`
+	Balance     int64  `json:"balance"`
 }
 
 func (c *CreateUserCMD) validate() error {
