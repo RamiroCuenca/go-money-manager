@@ -2,20 +2,25 @@ package common
 
 import (
 	"database/sql"
-	"fmt"
 )
 
 type MySqlClient struct {
+	*sql.DB
 }
 
-func NewSqlClient(source string) *sql.DB {
+func NewSqlClient(source string) *MySqlClient {
 	db, err := sql.Open("mysql", source)
 
 	if err != nil {
-		_ = fmt.Errorf("Failed to open database: %v", err.Error())
+		Logger().Errorf("Failed to open data base. Reason: %v", err)
 		panic(err)
 	}
 
-	return db
+	err = db.Ping()
 
+	if err != nil {
+		Logger().Errorf("Failed to connect to mysql. Reason: %v", err)
+	}
+
+	return &MySqlClient{db}
 }
