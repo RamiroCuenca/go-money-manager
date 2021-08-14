@@ -12,23 +12,19 @@ func NewTransaction(
 	description string,
 	category string,
 	amount float64,
-	state bool,
-	recurrent bool,
 ) *CreateTransactionCMD {
 	return &CreateTransactionCMD{
 		UserID:      userId,
 		Date:        date,
 		Title:       title,
 		Description: description,
-		Category:    category,
 		Amount:      amount,
-		State:       state,
-		Recurrent:   recurrent,
+		Category:    category,
 	}
 }
 
 func Test_ValidateCreateTransactionWithCorrectParams(t *testing.T) {
-	transac := NewTransaction(23, time.Now(), "The title", "A description", "My category", 35.3, true, false)
+	transac := NewTransaction(23, time.Now(), "The title", "A description", "My category", 35.3)
 
 	err := transac.validate()
 
