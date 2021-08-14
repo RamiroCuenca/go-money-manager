@@ -1,4 +1,4 @@
-module github.com/RamiroCuenca/go-moneyManager
+module github.com/RamiroCuenca/go-money-manager
 
 go 1.16
 
