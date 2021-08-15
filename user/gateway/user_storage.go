@@ -1,15 +1,26 @@
 package gateway
 
 import (
-	"github.com/RamiroCuenca/go-moneyManager/common"
-	"github.com/RamiroCuenca/go-moneyManager/user/models"
+	"github.com/RamiroCuenca/go-money-manager/common"
+	"github.com/RamiroCuenca/go-money-manager/user/models"
 )
 
-// Create an interace for UsersStorageGateway
+// Create an interace for UsersStorageGateway witch will administrate
+// CRUD operations
 type UserStorageGateway interface {
 	// Create function that will recibe as a parameter a pointer to models.CreateUserCMD
 	// and will return an other pointer to the user model or an error
 	Create(cmd *models.CreateUserCMD) (*models.User, error)
+
+	// CRUD Read / Fetch / Find operation by ID
+	// It receives an ID as parameter and returns an user or an error
+	Read(uid int64) (*models.User, error)
+
+	// CRUD Delete user
+	// Receives an id and it returns the user witch is deleted
+	Delete(uid int64) (*models.User, error)
+
+	// CRUD Update
 }
 
 // The db
